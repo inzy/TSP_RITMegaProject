@@ -137,43 +137,46 @@ The AMTPG Jaya Algorithm for solving the Multi-Objective Traveling Salesman Prob
 
 Here’s a breakdown of the AMTPG Jaya Algorithm for MO TSP in simple language:
 
-Steps:
-Initialization:
+### Steps:
 
-First, create a population of possible solutions (called "particles"). Each particle represents a tour or path in the TSP. A tour is a sequence of cities that the salesman will visit.
-Each particle has two parts:
-Position: The sequence of cities.
-Velocity: This helps in adjusting the position of the particle.
-Set the values for the population size, number of iterations, and other parameters like the weights for the objectives (e.g., distance and time).
-Objective Functions:
+1. **Initialization**:
+   - First, create a population of possible solutions (called "particles"). Each particle represents a tour or path in the TSP. A tour is a sequence of cities that the salesman will visit. 
+   - Each particle has two parts:
+     - **Position**: The sequence of cities.
+     - **Velocity**: This helps in adjusting the position of the particle.
+   - Set the values for the population size, number of iterations, and other parameters like the weights for the objectives (e.g., distance and time).
 
-In the MO TSP, we aim to optimize multiple objectives simultaneously. For example:
-Objective 1: Minimize the total distance of the tour.
-Objective 2: Minimize the total time or cost.
-These objectives are combined into a Pareto front (a set of non-dominated solutions), where no solution is better in all objectives than another.
-Updating the Position:
+2. **Objective Functions**:
+   - In the MO TSP, we aim to optimize multiple objectives simultaneously. For example:
+     - **Objective 1**: Minimize the total distance of the tour.
+     - **Objective 2**: Minimize the total time or cost.
+   - These objectives are combined into a **Pareto front** (a set of non-dominated solutions), where no solution is better in all objectives than another.
 
-For each particle in the population, calculate the objective values (e.g., total distance and time).
-Compare each particle’s current position with the best solution it has found so far (called personal best) and the best solution found by the entire population (called global best).
-Update the particle’s position based on:
-The personal best solution: Move the particle closer to its own best solution.
-The global best solution: Move the particle closer to the best solution found by the entire population.
-The idea is that particles tend to move toward the best solutions found by themselves and the group.
-Handling Multiple Objectives:
+3. **Updating the Position**:
+   - For each particle in the population, calculate the objective values (e.g., total distance and time).
+   - Compare each particle’s current position with the best solution it has found so far (called **personal best**) and the best solution found by the entire population (called **global best**).
+   - Update the particle’s position based on:
+     - The **personal best** solution: Move the particle closer to its own best solution.
+     - The **global best** solution: Move the particle closer to the best solution found by the entire population.
+   - The idea is that particles tend to move toward the best solutions found by themselves and the group.
 
-In the case of multiple objectives, there’s no single optimal solution. The algorithm looks for a set of solutions that are "Pareto optimal," meaning that no other solution is strictly better in all objectives.
-AMTPG (Adaptive Multi-Objective Time-Path Generation) handles these multiple objectives by adjusting the weights of the objectives dynamically throughout the optimization process.
-Convergence:
+4. **Handling Multiple Objectives**:
+   - In the case of multiple objectives, there’s no single optimal solution. The algorithm looks for a set of solutions that are "Pareto optimal," meaning that no other solution is strictly better in all objectives.
+   - AMTPG (Adaptive Multi-Objective Time-Path Generation) handles these multiple objectives by adjusting the weights of the objectives dynamically throughout the optimization process.
 
-The algorithm continues to update the positions of particles for a fixed number of iterations or until a convergence criterion is met (e.g., no improvement in the solutions for several iterations).
-Once the algorithm completes, the Pareto front is obtained, showing a set of optimal solutions based on the given objectives.
-Key Features of the AMTPG Jaya Algorithm:
-Swarm Intelligence: Uses the collective knowledge of all particles in the population to guide the search for the optimal solution.
-Pareto Front: Instead of a single solution, the algorithm finds a set of optimal solutions, each balancing different objectives.
-Adaptive Weights: Dynamically adjusts the importance of each objective during the search to better handle the trade-offs between them.
-Benefits:
-Finds a set of solutions instead of just one, giving decision-makers multiple options to choose from.
-It doesn’t require any gradient information or a model of the problem, making it suitable for complex problems like MO TSP.
+5. **Convergence**:
+   - The algorithm continues to update the positions of particles for a fixed number of iterations or until a convergence criterion is met (e.g., no improvement in the solutions for several iterations).
+   - Once the algorithm completes, the Pareto front is obtained, showing a set of optimal solutions based on the given objectives.
+
+### Key Features of the AMTPG Jaya Algorithm:
+- **Swarm Intelligence**: Uses the collective knowledge of all particles in the population to guide the search for the optimal solution.
+- **Pareto Front**: Instead of a single solution, the algorithm finds a set of optimal solutions, each balancing different objectives.
+- **Adaptive Weights**: Dynamically adjusts the importance of each objective during the search to better handle the trade-offs between them.
+
+### Benefits:
+- Finds a set of solutions instead of just one, giving decision-makers multiple options to choose from.
+- It doesn’t require any gradient information or a model of the problem, making it suitable for complex problems like MO TSP.
+
 In summary, the AMTPG Jaya Algorithm is a powerful method to find the optimal routes in the Multi-Objective Traveling Salesman Problem by considering various conflicting objectives and using swarm-based optimization to guide the search for the best possible set of solutions.
 
 
@@ -184,19 +187,20 @@ In summary, the AMTPG Jaya Algorithm is a powerful method to find the optimal ro
 ---
 ---
 
-a simple and basic flowchart for the steps in the AMTPG Jaya Algorithm for the Multi-Objective Traveling Salesman Problem (MO TSP):
+Here's a simple and basic flowchart for the steps in the AMTPG Jaya Algorithm for the Multi-Objective Traveling Salesman Problem (MO TSP):
 
-Start
-Initialize Population (Create initial set of solutions with random paths)
-Evaluate Objectives (Calculate the objective values like distance, time, cost)
-Update Personal Best (Compare current solution with personal best, update if better)
-Update Global Best (Compare current solution with global best, update if better)
-Update Position (Adjust particle position based on personal and global bests)
-Check Termination Criteria (Have we reached max iterations or convergence?)
-No → Go back to Evaluate Objectives
-Yes → Go to Pareto Front
-Generate Pareto Front (Create a set of non-dominated solutions)
-End
+1. **Start**
+2. **Initialize Population** (Create initial set of solutions with random paths)
+3. **Evaluate Objectives** (Calculate the objective values like distance, time, cost)
+4. **Update Personal Best** (Compare current solution with personal best, update if better)
+5. **Update Global Best** (Compare current solution with global best, update if better)
+6. **Update Position** (Adjust particle position based on personal and global bests)
+7. **Check Termination Criteria** (Have we reached max iterations or convergence?)
+   - **No** → Go back to **Evaluate Objectives**
+   - **Yes** → Go to **Pareto Front**
+8. **Generate Pareto Front** (Create a set of non-dominated solutions)
+9. **End**
+
 This flowchart outlines the high-level steps of the algorithm. The loop continues until a stopping condition (like a set number of iterations or convergence) is met, and the final result is a set of Pareto optimal solutions.
 
 
@@ -205,6 +209,9 @@ This flowchart outlines the high-level steps of the algorithm. The loop continue
 ---
 
 
+Here’s a basic flowchart for the AMTPG Jaya Algorithm for MO TSP using standard flowchart symbols:
+
+```
    +----------------------+
    |      Start           |
    +----------------------+
@@ -257,3 +264,8 @@ This flowchart outlines the high-level steps of the algorithm. The loop continue
    +----------------------+
    |        End           |
    +----------------------+
+```
+
+
+
+This flowchart follows the basic steps and logical flow of the AMTPG Jaya Algorithm for MO TSP.
